@@ -14,7 +14,7 @@ def read_file():
         text.pack()
         text.insert('1.0', data) 
 
-#Создание заметки
+#Создание заметк
 def create_file():
     def save_file():
         with open('zametki.csv', 'a') as f:
@@ -22,6 +22,7 @@ def create_file():
             f.write(text)
             window.destroy()
 
+    window = tk.Tk()
     window = tk.Tk()
     window.title("Запись в файл")
     window.geometry("300x200")

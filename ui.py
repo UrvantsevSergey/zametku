@@ -10,8 +10,8 @@ def Interface():
     lable.pack()
 
     load_bt = ttk.Button(root, text="Показать заметки", command=read_file)
-    load_bt.pack()
+    load_bt.pack(fill="both")
     bt2 = ttk.Button(root, text="Создать заметку", command=create_file)
-    bt2.pack()
+    bt2.pack(fill="both")
 
     root.mainloop()

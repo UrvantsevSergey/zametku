@@ -15,13 +15,14 @@ def read_file():
         def edit_note(text_widget):
             new_text = simpledialog.askstring("Редактирование заметки", "Введите новый текст", initialvalue=text_widget.get("1.0", tk.END).strip())
             if new_text:
-                with open('zametki.csv', 'r+') as f:
+                with open('zametki.csv', 'a') as f:
                     time = datetime.datetime.now()
                     timered = time.strftime("%Y-%m-%d %H:%M:%S")
 
-                    f.write(f"{timered}\n{new_text}\n")
+                    f.write(f"{timered}\n{new_text}\n\n")
                     text_widget.delete("1.0", tk.END)
-                    text_widget.insert("1.0", f"{timered}\n{new_text}")
+                    text_widget.insert("1.0", f"{timered}\n{new_text}\n\n")
+                    display.destroy()
 
 
 

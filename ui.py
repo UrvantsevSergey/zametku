@@ -4,7 +4,7 @@ from logger import create_file, read_file
 def Interface():
     root = Tk()
     root.title("Приложение заметки")
-    root.geometry("300x200")
+    root.geometry("400x400")
 
     lable = ttk.Label(root, text="Выберите действие", anchor=N)
     lable.pack()

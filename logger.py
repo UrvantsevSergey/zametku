@@ -4,7 +4,24 @@ from tkinter import ttk
 from tkinter import ttk, simpledialog
 
 #Вывод на экран
-
+def delete_note(text_widget):
+    # Получаем текст заметки для удаления
+    note_text = text_widget.get("1.0", tk.END).strip()
+    
+    # Читаем существующие данные
+    with open('zametki.csv', 'r') as f:
+        data = f.read().split('\n\n')
+    
+    # Удаляем заметку
+    data = [note for note in data if note.strip() != note_text]
+    
+    # Записываем обновленные данные обратно в файл
+    with open('zametki.csv', 'w') as f:
+        f.write('\n\n'.join(data))
+    
+    # Очищаем текстовое поле
+    text_widget.delete("1.0", tk.END)
+    
 def read_file():
     with open('zametki.csv', 'r+') as f:
         data = f.read()
@@ -47,6 +64,8 @@ def read_file():
             text.insert('1.0', line.strip()) 
             bt = tk.Button(display, text="Редактировать", command=lambda t=text: edit_note(t))
             bt.pack(fill="both")
+            delete_button = tk.Button(display, text="Удалить", command=lambda t=text: delete_note(t))
+            delete_button.pack(fill="both")
     
 
 #Создание заметки
@@ -69,6 +88,7 @@ def create_file():
 
     save_button = tk.Button(window, text="Сохранить в файл", command=save_file)
     save_button.pack(fill='both')
+
 
 
 

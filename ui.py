@@ -14,5 +14,5 @@ def Interface():
     load_bt.pack(fill="both")
     bt2 = tkinter.Button(root, text="Создать заметку", command=create_file)
     bt2.pack(fill="both")
-
+    
     root.mainloop()
